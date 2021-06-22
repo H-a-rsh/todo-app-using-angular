@@ -1,0 +1,38 @@
+<div class="row"  >
+    <div class= " offset-md-3 col-md-6" >
+    <div class="card " style="margin-top: 200px; border-radius: 20px; background-color:#12056F" >
+        <div class="card-header  text-center text-white">
+            <h1>Todo List</h1>
+        </div>
+        <div class= "card-body ">
+    
+<div class="todos">
+    
+    <form [formGroup]="toDoForm" (submit)="addTodo()">
+        <input type="text"
+        name="inputTodo"
+        placeholder="Enter todo..."
+        class="todo-input"
+        formControlName="search"
+        
+        />
+        <span class="text-white" *ngIf="toDoForm.controls.search.invalid && toDoForm.controls.search.dirty">Please enter the todo </span>
+        <input  [disabled]="toDoForm.invalid " type="submit" value="Add Todo" class="todo-submit"/>
+    </form>
+    <div  *ngFor="let todo of todos; let i =index; " class="bg-primary  todo {{(todo.completed ?'done':'')}}">
+        <div  class="id bg-primary">{{i}}</div>
+    <div class="content text-white"  (click)="toggleDone(i)">{{todo.content}}</div>
+    <svg (click)="deleteTodo(i)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-square-fill" viewBox="0 0 16 16">
+        <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 4.646L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708z"/>
+      </svg>
+      
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div>
+    <iframe width="1424" height="652" src="https://www.youtube.com/embed/avbzjWknugI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
